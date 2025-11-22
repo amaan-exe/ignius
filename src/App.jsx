@@ -5,6 +5,7 @@ import Projects from './components/Projects'
 import About from './components/About'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import ThemeToggle from './components/ThemeToggle'
 
 function App() {
     useEffect(() => {
@@ -22,6 +23,7 @@ function App() {
                 <Contact />
             </main>
             <Footer />
+            <ThemeToggle />
         </div>
     )
 }

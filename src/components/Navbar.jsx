@@ -5,6 +5,7 @@ import './Navbar.css'
 const Navbar = () => {
     const navRef = useRef(null)
     const [isScrolled, setIsScrolled] = useState(false)
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
     useEffect(() => {
         // Navbar entrance animation
@@ -27,7 +28,12 @@ const Navbar = () => {
         const element = document.getElementById(id)
         if (element) {
             element.scrollIntoView({ behavior: 'smooth' })
+            setIsMobileMenuOpen(false)
         }
+    }
+
+    const toggleMobileMenu = () => {
+        setIsMobileMenuOpen(!isMobileMenuOpen)
     }
 
     return (
@@ -66,10 +72,53 @@ const Navbar = () => {
 
                     <button
                         onClick={() => scrollToSection('contact')}
-                        className="btn btn-primary btn-sm"
+                        className="btn btn-primary btn-sm navbar-cta"
                     >
                         Get Started
                     </button>
+
+                    <button
+                        className={`hamburger ${isMobileMenuOpen ? 'active' : ''}`}
+                        onClick={toggleMobileMenu}
+                        aria-label="Toggle menu"
+                    >
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+
+                <div className={`mobile-menu ${isMobileMenuOpen ? 'active' : ''}`}>
+                    <ul className="mobile-menu-list">
+                        <li>
+                            <button onClick={() => scrollToSection('hero')} className="mobile-nav-link">
+                                Home
+                            </button>
+                        </li>
+                        <li>
+                            <button onClick={() => scrollToSection('projects')} className="mobile-nav-link">
+                                Projects
+                            </button>
+                        </li>
+                        <li>
+                            <button onClick={() => scrollToSection('about')} className="mobile-nav-link">
+                                About
+                            </button>
+                        </li>
+                        <li>
+                            <button onClick={() => scrollToSection('contact')} className="mobile-nav-link">
+                                Contact
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                onClick={() => scrollToSection('contact')}
+                                className="btn btn-primary btn-full"
+                            >
+                                Get Started
+                            </button>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </nav>
