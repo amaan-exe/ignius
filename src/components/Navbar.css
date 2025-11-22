@@ -177,3 +177,23 @@
     display: flex;
   }
 }
+
+/* Mobile navbar fixes */
+@media (max-width: 768px) {
+    .navbar {
+        padding: var(--spacing-sm) 0 !important;
+    }
+
+    .navbar-scrolled {
+        padding: var(--spacing-xs) 0 !important;
+    }
+
+    .navbar-content {
+        gap: var(--spacing-sm);
+    }
+
+    .mobile-menu {
+        top: 60px;
+        height: calc(100vh - 60px);
+    }
+}

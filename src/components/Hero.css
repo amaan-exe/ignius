@@ -201,3 +201,32 @@
         height: 200px;
     }
 }
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+    .hero {
+        padding-top: 120px !important;
+        min-height: 100vh !important;
+    }
+
+    .hero-content {
+        padding: 0 var(--spacing-md);
+    }
+
+    .hero-title {
+        font-size: clamp(2rem, 10vw, 3rem) !important;
+        margin-bottom: var(--spacing-md) !important;
+    }
+
+    .hero-subtitle {
+        font-size: clamp(0.9rem, 4vw, 1.1rem) !important;
+        margin-bottom: var(--spacing-xl) !important;
+    }
+
+    .hero-cta {
+        gap: var(--spacing-sm) !important;
+    }
+
+    .scroll-indicator {
+        display: none;
+    }
+}
