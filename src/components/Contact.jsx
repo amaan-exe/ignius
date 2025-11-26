@@ -58,7 +58,8 @@ const Contact = () => {
                     name: formData.name,
                     email: formData.email,
                     message: formData.message,
-                    _subject: "New Portfolio Inquiry!"
+                    _subject: "New Portfolio Inquiry!",
+                    _captcha: "false"
                 })
             });
 
