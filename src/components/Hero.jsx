@@ -95,15 +95,15 @@ const Hero = () => {
 
                     <div ref={floatingRef} className="hero-stats">
                         <div className="stat-item glass">
-                            <div className="stat-number gradient-text">150+</div>
+                            <div className="stat-number gradient-text">15+</div>
                             <div className="stat-label">Projects Completed</div>
                         </div>
                         <div className="stat-item glass">
-                            <div className="stat-number gradient-text">98%</div>
+                            <div className="stat-number gradient-text">100%</div>
                             <div className="stat-label">Client Satisfaction</div>
                         </div>
                         <div className="stat-item glass">
-                            <div className="stat-number gradient-text">50+</div>
+                            <div className="stat-number gradient-text">10+</div>
                             <div className="stat-label">Happy Clients</div>
                         </div>
                     </div>

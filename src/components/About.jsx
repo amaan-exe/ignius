@@ -91,15 +91,15 @@ const About = () => {
                         </p>
                         <div className="about-stats-inline">
                             <div className="stat-inline">
-                                <span className="stat-number-inline gradient-text">5+</span>
+                                <span className="stat-number-inline gradient-text">1+</span>
                                 <span className="stat-label-inline">Years Experience</span>
                             </div>
                             <div className="stat-inline">
-                                <span className="stat-number-inline gradient-text">150+</span>
+                                <span className="stat-number-inline gradient-text">15+</span>
                                 <span className="stat-label-inline">Projects Delivered</span>
                             </div>
                             <div className="stat-inline">
-                                <span className="stat-number-inline gradient-text">50+</span>
+                                <span className="stat-number-inline gradient-text">10+</span>
                                 <span className="stat-label-inline">Happy Clients</span>
                             </div>
                         </div>

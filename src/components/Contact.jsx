@@ -67,17 +67,17 @@ const Contact = () => {
                         <div className="info-card glass">
                             <div className="info-icon">📧</div>
                             <h3 className="info-title">Email</h3>
-                            <p className="info-text">hello@ignius.agency</p>
+                            <p className="info-text">amanullah2607main@gmail.com</p>
                         </div>
                         <div className="info-card glass">
                             <div className="info-icon">📱</div>
                             <h3 className="info-title">Phone</h3>
-                            <p className="info-text">+1 (555) 123-4567</p>
+                            <p className="info-text">+91 82713 01179</p>
                         </div>
                         <div className="info-card glass">
                             <div className="info-icon">📍</div>
                             <h3 className="info-title">Location</h3>
-                            <p className="info-text">San Francisco, CA</p>
+                            <p className="info-text">Bhubneshwar Odisha India</p>
                         </div>
                         <div className="social-links">
                             <a href="#" className="social-link glass">
@@ -118,7 +118,7 @@ const Contact = () => {
                                 value={formData.email}
                                 onChange={handleChange}
                                 className="form-input"
-                                placeholder="your.email@example.com"
+                                placeholder="amanullah2607main@gmail.com"
                                 required
                             />
                         </div>
