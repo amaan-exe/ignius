@@ -127,3 +127,9 @@
         grid-template-columns: repeat(2, 1fr);
     }
 }
+.btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none !important;
+    box-shadow: none !important;
+}

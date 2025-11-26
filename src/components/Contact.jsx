@@ -13,6 +13,7 @@ const Contact = () => {
         email: '',
         message: ''
     })
+    const [isSubmitting, setIsSubmitting] = useState(false)
 
     useEffect(() => {
         const ctx = gsap.context(() => {
@@ -42,12 +43,39 @@ const Contact = () => {
         })
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
-        // Handle form submission
-        console.log('Form submitted:', formData)
-        alert('Thank you for your message! We will get back to you soon.')
-        setFormData({ name: '', email: '', message: '' })
+        setIsSubmitting(true)
+
+        try {
+            const response = await fetch("https://formsubmit.co/ajax/amanullah2607main@gmail.com", {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: formData.name,
+                    email: formData.email,
+                    message: formData.message,
+                    _subject: "New Portfolio Inquiry!"
+                })
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+                setFormData({ name: '', email: '', message: '' })
+                alert('Thank you! Your message has been sent successfully. We will get back to you soon.')
+            } else {
+                alert('Something went wrong. Please try again later.')
+            }
+        } catch (error) {
+            console.error(error)
+            alert('Failed to send message. Please check your connection.')
+        } finally {
+            setIsSubmitting(false)
+        }
     }
 
     return (
@@ -64,16 +92,16 @@ const Contact = () => {
 
                 <div className="contact-content" ref={formRef}>
                     <div className="contact-info">
-                        <div className="info-card glass">
+                        <a href="mailto:amanullah2607main@gmail.com" className="info-card glass" style={{ textDecoration: 'none', display: 'block' }}>
                             <div className="info-icon">📧</div>
                             <h3 className="info-title">Email</h3>
                             <p className="info-text">amanullah2607main@gmail.com</p>
-                        </div>
-                        <div className="info-card glass">
+                        </a>
+                        <a href="tel:+918271301179" className="info-card glass" style={{ textDecoration: 'none', display: 'block' }}>
                             <div className="info-icon">📱</div>
                             <h3 className="info-title">Phone</h3>
                             <p className="info-text">+91 82713 01179</p>
-                        </div>
+                        </a>
                         <div className="info-card glass">
                             <div className="info-icon">📍</div>
                             <h3 className="info-title">Location</h3>
@@ -107,6 +135,7 @@ const Contact = () => {
                                 className="form-input"
                                 placeholder="Your name"
                                 required
+                                disabled={isSubmitting}
                             />
                         </div>
                         <div className="form-group">
@@ -120,6 +149,7 @@ const Contact = () => {
                                 className="form-input"
                                 placeholder="amanullah2607main@gmail.com"
                                 required
+                                disabled={isSubmitting}
                             />
                         </div>
                         <div className="form-group">
@@ -133,10 +163,15 @@ const Contact = () => {
                                 placeholder="Tell us about your project..."
                                 rows="6"
                                 required
+                                disabled={isSubmitting}
                             ></textarea>
                         </div>
-                        <button type="submit" className="btn btn-primary btn-full">
-                            Send Message
+                        <button
+                            type="submit"
+                            className="btn btn-primary btn-full"
+                            disabled={isSubmitting}
+                        >
+                            {isSubmitting ? 'Sending...' : 'Send Message'}
                         </button>
                     </form>
                 </div>
