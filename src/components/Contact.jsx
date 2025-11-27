@@ -48,7 +48,7 @@ const Contact = () => {
         setIsSubmitting(true)
 
         try {
-            const response = await fetch("https://formsubmit.co/ajax/amanullah2607main@gmail.com", {
+            const response = await fetch("https://formsubmit.co/ajax/ignuisstudios@gmail.com", {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',
@@ -93,15 +93,15 @@ const Contact = () => {
 
                 <div className="contact-content" ref={formRef}>
                     <div className="contact-info">
-                        <a href="mailto:amanullah2607main@gmail.com" className="info-card glass" style={{ textDecoration: 'none', display: 'block' }}>
+                        <a href="mailto:ignuisstudios@gmail.com" className="info-card glass" style={{ textDecoration: 'none', display: 'block' }}>
                             <div className="info-icon">📧</div>
                             <h3 className="info-title">Email</h3>
-                            <p className="info-text">amanullah2607main@gmail.com</p>
+                            <p className="info-text">ignuisstudios@gmail.com</p>
                         </a>
-                        <a href="tel:+918271301179" className="info-card glass" style={{ textDecoration: 'none', display: 'block' }}>
+                        <a href="tel:+916205708606" className="info-card glass" style={{ textDecoration: 'none', display: 'block' }}>
                             <div className="info-icon">📱</div>
                             <h3 className="info-title">Phone</h3>
-                            <p className="info-text">+91 82713 01179</p>
+                            <p className="info-text">+91 62057 08606</p>
                         </a>
                         <div className="info-card glass">
                             <div className="info-icon">📍</div>
@@ -148,7 +148,7 @@ const Contact = () => {
                                 value={formData.email}
                                 onChange={handleChange}
                                 className="form-input"
-                                placeholder="amanullah2607main@gmail.com"
+                                placeholder="your.email@example.com"
                                 required
                                 disabled={isSubmitting}
                             />

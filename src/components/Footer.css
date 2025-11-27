@@ -53,13 +53,21 @@
     gap: var(--spacing-sm);
 }
 
-.footer-list a {
+.footer-list a,
+.footer-list button {
     color: var(--text-tertiary);
     font-size: var(--font-size-sm);
     transition: color var(--transition-base);
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    text-align: left;
+    font-family: inherit;
 }
 
-.footer-list a:hover {
+.footer-list a:hover,
+.footer-list button:hover {
     color: var(--accent-primary);
 }
 

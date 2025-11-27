@@ -37,11 +37,11 @@ const Projects = () => {
         },
         {
             id: 4,
-            title: 'Fitness Tracker App',
-            category: 'Mobile App',
-            description: 'Intuitive fitness tracking application with beautiful interface',
-            image: '/assets/mobile_app_1763845880295.png',
-            tags: ['Mobile', 'Fitness', 'App Design']
+            title: 'Construction Site Landing Page',
+            category: 'Landing Page',
+            description: 'Full on construction site landing page',
+            image: '/assets/images/image.png',
+            tags: ['Website', 'Construction', 'Website Design']
         },
         {
             id: 5,

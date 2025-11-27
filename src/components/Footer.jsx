@@ -1,7 +1,30 @@
+import { useLocation, useNavigate } from 'react-router-dom'
 import './Footer.css'
 
 const Footer = () => {
     const currentYear = new Date().getFullYear()
+    const location = useLocation()
+    const navigate = useNavigate()
+
+    const scrollToSection = (id) => {
+        // If we're on the catalog page, navigate to home first
+        if (location.pathname === '/catalog') {
+            navigate('/')
+            // Use setTimeout to wait for navigation to complete
+            setTimeout(() => {
+                const element = document.getElementById(id)
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' })
+                }
+            }, 100)
+        } else {
+            // We're already on the home page, just scroll
+            const element = document.getElementById(id)
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' })
+            }
+        }
+    }
 
     return (
         <footer className="footer">
@@ -18,30 +41,30 @@ const Footer = () => {
                         <div className="footer-column">
                             <h4 className="footer-title">Services</h4>
                             <ul className="footer-list">
-                                <li><a href="#projects">Web Development</a></li>
-                                <li><a href="#projects">UI/UX Design</a></li>
-                                <li><a href="#projects">Mobile Apps</a></li>
-                                <li><a href="#projects">Brand Identity</a></li>
+                                <li><button onClick={() => scrollToSection('projects')}>Web Development</button></li>
+                                <li><button onClick={() => scrollToSection('projects')}>UI/UX Design</button></li>
+                                <li><button onClick={() => scrollToSection('projects')}>Mobile Apps</button></li>
+                                <li><button onClick={() => scrollToSection('projects')}>Brand Identity</button></li>
                             </ul>
                         </div>
 
                         <div className="footer-column">
                             <h4 className="footer-title">Company</h4>
                             <ul className="footer-list">
-                                <li><a href="#about">About Us</a></li>
-                                <li><a href="#projects">Portfolio</a></li>
-                                <li><a href="#contact">Contact</a></li>
-                                <li><a href="#contact">Careers</a></li>
+                                <li><button onClick={() => scrollToSection('about')}>About Us</button></li>
+                                <li><button onClick={() => scrollToSection('projects')}>Portfolio</button></li>
+                                <li><button onClick={() => scrollToSection('contact')}>Contact</button></li>
+                                <li><button onClick={() => scrollToSection('contact')}>Careers</button></li>
                             </ul>
                         </div>
 
                         <div className="footer-column">
                             <h4 className="footer-title">Connect</h4>
                             <ul className="footer-list">
-                                <li><a href="#">Twitter</a></li>
-                                <li><a href="#">LinkedIn</a></li>
-                                <li><a href="#">Dribbble</a></li>
-                                <li><a href="#">GitHub</a></li>
+                                <li><a href="https://twitter.com" target="_blank" rel="noopener noreferrer">Twitter</a></li>
+                                <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                                <li><a href="https://dribbble.com" target="_blank" rel="noopener noreferrer">Dribbble</a></li>
+                                <li><a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a></li>
                             </ul>
                         </div>
                     </div>
@@ -52,9 +75,9 @@ const Footer = () => {
                         © {currentYear} IGNIUS. All rights reserved.
                     </p>
                     <div className="footer-legal">
-                        <a href="#">Privacy Policy</a>
+                        <a href="mailto:ignuisstudios@gmail.com">Contact Us</a>
                         <span className="separator">•</span>
-                        <a href="#">Terms of Service</a>
+                        <a href="tel:+916205708606">Call Us</a>
                     </div>
                 </div>
             </div>
