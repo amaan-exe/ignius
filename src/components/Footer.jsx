@@ -78,6 +78,8 @@ const Footer = () => {
                         <a href="mailto:ignuisstudios@gmail.com">Contact Us</a>
                         <span className="separator">•</span>
                         <a href="tel:+916205708606">Call Us</a>
+                        <span className="separator">•</span>
+                        <a href="https://wa.me/916205708606?text=Hi!%20I%27d%20like%20to%20discuss%20a%20project%20with%20Ignius%20Studios" target="_blank" rel="noopener noreferrer">WhatsApp</a>
                     </div>
                 </div>
             </div>

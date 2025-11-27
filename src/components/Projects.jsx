@@ -17,7 +17,8 @@ const Projects = () => {
             category: 'Web Development',
             description: 'High-end fashion store with seamless shopping experience and modern UI',
             image: '/assets/ecommerce_website_1763845822235.png',
-            tags: ['React', 'E-Commerce', 'UI/UX']
+            tags: ['React', 'E-Commerce', 'UI/UX'],
+            url: 'https://aurora-mode.vercel.app/'
         },
         {
             id: 2,
@@ -25,7 +26,8 @@ const Projects = () => {
             category: 'SaaS Platform',
             description: 'Powerful business intelligence platform with real-time data visualization',
             image: '/assets/saas_dashboard_1763845840300.png',
-            tags: ['Dashboard', 'Analytics', 'SaaS']
+            tags: ['Dashboard', 'Analytics', 'SaaS'],
+            url: 'https://ignius-olive.vercel.app/'
         },
         {
             id: 3,
@@ -33,7 +35,8 @@ const Projects = () => {
             category: 'Landing Page',
             description: 'Conversion-focused landing page with stunning animations and CTAs',
             image: '/assets/landing_page_1763845862140.png',
-            tags: ['Landing Page', 'Startup', 'Marketing']
+            tags: ['Landing Page', 'Startup', 'Marketing'],
+            url: 'https://ignius-olive.vercel.app/'
         },
         {
             id: 4,
@@ -41,7 +44,8 @@ const Projects = () => {
             category: 'Landing Page',
             description: 'Full on construction site landing page',
             image: '/assets/images/image.png',
-            tags: ['Website', 'Construction', 'Website Design']
+            tags: ['Website', 'Construction', 'Website Design'],
+            url: 'https://smart-construction-developers.vercel.app/'
         },
         {
             id: 5,
@@ -49,7 +53,8 @@ const Projects = () => {
             category: 'Portfolio Website',
             description: 'Elegant portfolio showcasing creative work with immersive gallery',
             image: '/assets/portfolio_website_1763845901651.png',
-            tags: ['Portfolio', 'Photography', 'Gallery']
+            tags: ['Portfolio', 'Photography', 'Gallery'],
+            url: 'https://ignius-olive.vercel.app/'
         },
         {
             id: 6,
@@ -57,7 +62,8 @@ const Projects = () => {
             category: 'Restaurant Website',
             description: 'Luxury restaurant website with online reservations and menu showcase',
             image: '/assets/restaurant_website_1763845924769.png',
-            tags: ['Restaurant', 'Booking', 'Hospitality']
+            tags: ['Restaurant', 'Booking', 'Hospitality'],
+            url: 'https://ignius-olive.vercel.app/'
         }
     ]
 
@@ -126,7 +132,14 @@ const Projects = () => {
                                     className="project-image"
                                 />
                                 <div className="project-overlay">
-                                    <button className="btn btn-primary btn-sm">View Project</button>
+                                    <a
+                                        href={project.url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="btn btn-primary btn-sm"
+                                    >
+                                        View Project
+                                    </a>
                                 </div>
                             </div>
                             <div className="project-content">
