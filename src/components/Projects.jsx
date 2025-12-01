@@ -45,7 +45,7 @@ const Projects = () => {
             description: 'Full on construction site landing page',
             image: '/assets/images/image.png',
             tags: ['Website', 'Construction', 'Website Design'],
-            url: 'https://smart-construction-developers.vercel.app/'
+            url: 'https://scd.net.in/'
         },
         {
             id: 5,
