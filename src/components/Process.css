@@ -1,0 +1,147 @@
+/* ===================================
+   PROCESS - PREMIUM STYLE
+   =================================== */
+.process {
+    background: var(--bg-primary);
+    position: relative;
+}
+
+.process .section-header {
+    margin-bottom: var(--spacing-3xl);
+    max-width: 500px;
+}
+
+.process .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--accent-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin-bottom: var(--spacing-md);
+}
+
+.process .section-label::before {
+    content: '';
+    width: 40px;
+    height: 1px;
+    background: var(--accent-primary);
+}
+
+.process .section-title {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    margin-bottom: var(--spacing-md);
+}
+
+.process .section-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-tertiary);
+    line-height: 1.7;
+}
+
+/* Grid */
+.process-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+/* Step */
+.process-step {
+    padding: 32px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    position: relative;
+    transition: all var(--transition-base);
+}
+
+.process-step:hover {
+    border-color: var(--accent-primary);
+    transform: translateY(-4px);
+}
+
+.process-step::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 32px;
+    right: 32px;
+    height: 2px;
+    background: var(--accent-primary);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--transition-base);
+}
+
+.process-step:hover::before {
+    transform: scaleX(1);
+}
+
+/* Number */
+.step-number {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--accent-primary);
+    opacity: 0.3;
+    line-height: 1;
+    margin-bottom: 16px;
+    transition: opacity var(--transition-base);
+}
+
+.process-step:hover .step-number {
+    opacity: 1;
+}
+
+/* Content */
+.step-content {
+    position: relative;
+}
+
+.step-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+}
+
+.step-description {
+    font-size: 0.9rem;
+    color: var(--text-tertiary);
+    line-height: 1.6;
+}
+
+/* Connector - hidden on grid */
+.step-connector {
+    display: none;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .process-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .process-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .process-step {
+        padding: 24px;
+    }
+
+    .process-step::before {
+        left: 24px;
+        right: 24px;
+    }
+
+    .step-number {
+        font-size: 2.5rem;
+    }
+}

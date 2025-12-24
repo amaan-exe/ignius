@@ -1,53 +1,54 @@
 /* ===================================
-   CATALOG PAGE STYLES
+   CATALOG / PRICING - SLEEK AGENCY STYLE
    =================================== */
-
 .catalog-page {
     min-height: 100vh;
-    padding-top: 100px;
-    padding-bottom: var(--spacing-3xl);
+    padding-top: 120px;
+    padding-bottom: var(--spacing-4xl);
     background: var(--bg-primary);
 }
 
-/* Header Section */
+/* Header */
 .catalog-header {
     text-align: center;
     margin-bottom: var(--spacing-3xl);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .catalog-header h1 {
-    font-size: var(--font-size-6xl);
-    margin-bottom: var(--spacing-md);
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
     font-weight: 800;
+    margin-bottom: var(--spacing-md);
+    letter-spacing: -0.02em;
 }
 
 .catalog-subtitle {
-    font-size: var(--font-size-xl);
+    font-size: 1.15rem;
     color: var(--text-secondary);
-    max-width: 600px;
-    margin: 0 auto var(--spacing-xl);
+    line-height: 1.7;
+    margin-bottom: var(--spacing-lg);
 }
 
 .catalog-note {
     display: inline-flex;
     align-items: center;
-    gap: var(--spacing-sm);
-    padding: var(--spacing-md) var(--spacing-xl);
-    background: var(--glass-bg);
-    backdrop-filter: blur(20px);
-    border: 1px solid var(--glass-border);
+    gap: 10px;
+    padding: 12px 24px;
+    background: rgba(0, 240, 255, 0.08);
+    border: 1px solid rgba(0, 240, 255, 0.2);
     border-radius: var(--radius-full);
-    margin-top: var(--spacing-lg);
 }
 
 .note-icon {
-    font-size: var(--font-size-xl);
+    font-size: 1.1rem;
 }
 
 .catalog-note p {
     margin: 0;
-    font-size: var(--font-size-sm);
-    color: var(--text-tertiary);
+    font-size: 0.9rem;
+    color: var(--text-secondary);
 }
 
 /* Pricing Grid */
@@ -58,258 +59,78 @@
     margin-bottom: var(--spacing-3xl);
 }
 
-/* Pricing Cards */
+/* Pricing Card */
 .pricing-card {
     padding: var(--spacing-xl);
     display: flex;
     flex-direction: column;
     gap: var(--spacing-lg);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
     transition: all var(--transition-base);
+    position: relative;
 }
 
 .pricing-card:hover {
-    transform: translateY(-12px);
-    box-shadow: 0 24px 48px rgba(99, 102, 241, 0.2);
+    border-color: var(--accent-primary);
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
+.pricing-card::before {
+    display: none;
+}
+
+/* Pricing Header */
 .pricing-header {
-    border-bottom: 2px solid var(--glass-border);
+    border-bottom: 1px solid var(--border-color);
     padding-bottom: var(--spacing-md);
 }
 
 .pricing-header h3 {
-    font-size: var(--font-size-2xl);
-    margin-bottom: var(--spacing-xs);
+    font-size: 1.3rem;
+    font-weight: 700;
     color: var(--text-primary);
+    margin-bottom: 6px;
 }
 
 .pricing-description {
-    font-size: var(--font-size-sm);
+    font-size: 0.9rem;
     color: var(--text-tertiary);
-    line-height: 1.6;
+    line-height: 1.5;
     margin: 0;
 }
 
+/* Price */
 .pricing-amount {
-    text-align: center;
-    padding: var(--spacing-lg) 0;
+    text-align: left;
 }
 
 .price {
-    font-size: var(--font-size-4xl);
-    font-weight: 800;
     font-family: var(--font-display);
+    font-size: 2.75rem;
+    font-weight: 800;
+    color: var(--accent-primary);
 }
 
+/* Features */
 .pricing-features {
     list-style: none;
     padding: 0;
     margin: 0;
     flex-grow: 1;
-}
-
-.pricing-features li {
     display: flex;
-    align-items: center;
-    gap: var(--spacing-sm);
-    padding: var(--spacing-xs) 0;
-    color: var(--text-secondary);
-    font-size: var(--font-size-base);
-}
-
-.feature-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background: var(--gradient-primary);
-    color: white;
-    font-size: var(--font-size-xs);
-    font-weight: bold;
-    flex-shrink: 0;
-}
-
-/* CTA Section */
-.catalog-cta {
-    text-align: center;
-    padding: var(--spacing-3xl) var(--spacing-lg);
-    background: var(--glass-bg);
-    backdrop-filter: blur(20px);
-    border: 1px solid var(--glass-border);
-    border-radius: var(--radius-xl);
-    position: relative;
-    overflow: hidden;
-}
-
-.catalog-cta::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--gradient-primary);
-    opacity: 0.03;
-    z-index: 0;
-}
-
-.catalog-cta>* {
-    position: relative;
-    z-index: 1;
-}
-
-.catalog-cta h2 {
-    font-size: var(--font-size-4xl);
-    margin-bottom: var(--spacing-sm);
-    background: var(--gradient-primary);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.catalog-cta p {
-    font-size: var(--font-size-lg);
-    color: var(--text-secondary);
-    margin-bottom: var(--spacing-xl);
-}
-
-.catalog-cta .btn {
-    margin-top: var(--spacing-md);
-}
-
-/* Responsive Design */
-@media (max-width: 1024px) {
-    .pricing-grid {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    }
-
-    .catalog-header h1 {
-        font-size: var(--font-size-5xl);
-    }
-
-    .price {
-        font-size: var(--font-size-3xl);
-    }
-}
-
-@media (max-width: 768px) {
-    .catalog-page {
-        padding-top: 80px;
-    }
-
-    .catalog-header h1 {
-        font-size: var(--font-size-4xl);
-    }
-
-    .catalog-subtitle {
-        font-size: var(--font-size-base);
-    }
-
-    .pricing-grid {
-        grid-template-columns: 1fr;
-        gap: var(--spacing-md);
-    }
-
-    .pricing-card {
-        padding: var(--spacing-lg);
-    }
-
-    .price {
-        font-size: var(--font-size-2xl);
-    }
-
-    .catalog-cta h2 {
-        font-size: var(--font-size-3xl);
-    }
-
-    .catalog-note {
-        flex-direction: column;
-        text-align: center;
-    }
-}
-
-/* Animation Enhancement */
-.pricing-card {
-    animation: scaleIn 0.5s ease-out backwards;
-}
-
-@keyframes scaleIn {
-    from {
-        opacity: 0;
-        transform: scale(0.9);
-    }
-
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-/* Hover Effects */
-.pricing-card::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
-    opacity: 0;
     flex-direction: column;
-    gap: var(--spacing-lg);
-    transition: all var(--transition-base);
-}
-
-.pricing-card:hover {
-    transform: translateY(-12px);
-    box-shadow: 0 24px 48px rgba(99, 102, 241, 0.2);
-}
-
-.pricing-header {
-    border-bottom: 2px solid var(--glass-border);
-    padding-bottom: var(--spacing-md);
-}
-
-.pricing-header h3 {
-    font-size: var(--font-size-2xl);
-    margin-bottom: var(--spacing-xs);
-    color: var(--text-primary);
-}
-
-.pricing-description {
-    font-size: var(--font-size-sm);
-    color: var(--text-tertiary);
-    line-height: 1.6;
-    margin: 0;
-}
-
-.pricing-amount {
-    text-align: center;
-    padding: var(--spacing-lg) 0;
-}
-
-.price {
-    font-size: var(--font-size-4xl);
-    font-weight: 800;
-    font-family: var(--font-display);
-}
-
-.pricing-features {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    flex-grow: 1;
+    gap: 12px;
 }
 
 .pricing-features li {
     display: flex;
     align-items: center;
-    gap: var(--spacing-sm);
-    padding: var(--spacing-xs) 0;
+    gap: 12px;
     color: var(--text-secondary);
-    font-size: var(--font-size-base);
+    font-size: 0.95rem;
 }
 
 .feature-icon {
@@ -319,232 +140,98 @@
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background: var(--gradient-primary);
-    color: white;
-    font-size: var(--font-size-xs);
+    background: var(--accent-primary);
+    color: #000;
+    font-size: 10px;
     font-weight: bold;
+    flex-shrink: 0;
+}
+
+/* WhatsApp Button */
+.btn-whatsapp-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 14px 24px;
+    background: transparent;
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-base);
+    text-decoration: none;
+    margin-top: auto;
+}
+
+.btn-whatsapp-outline:hover {
+    background: #25D366;
+    color: #fff;
+    border-color: #25D366;
+}
+
+.btn-whatsapp-outline svg {
     flex-shrink: 0;
 }
 
 /* CTA Section */
 .catalog-cta {
     text-align: center;
-    padding: var(--spacing-3xl) var(--spacing-lg);
-    background: var(--glass-bg);
-    backdrop-filter: blur(20px);
-    border: 1px solid var(--glass-border);
-    border-radius: var(--radius-xl);
-    position: relative;
-    overflow: hidden;
-}
-
-.catalog-cta::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--gradient-primary);
-    opacity: 0.03;
-    z-index: 0;
-}
-
-.catalog-cta>* {
-    position: relative;
-    z-index: 1;
-}
-
-.catalog-cta h2 {
-    font-size: var(--font-size-4xl);
-    margin-bottom: var(--spacing-sm);
-    background: var(--gradient-primary);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-.catalog-cta p {
-    font-size: var(--font-size-lg);
-    color: var(--text-secondary);
-    margin-bottom: var(--spacing-xl);
-}
-
-.catalog-cta .btn {
-    margin-top: var(--spacing-md);
-}
-
-/* Responsive Design */
-@media (max-width: 1024px) {
-    .pricing-grid {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    }
-
-    .catalog-header h1 {
-        font-size: var(--font-size-5xl);
-    }
-
-    .price {
-        font-size: var(--font-size-3xl);
-    }
-}
-
-@media (max-width: 768px) {
-    .catalog-page {
-        padding-top: 80px;
-    }
-
-    .catalog-header h1 {
-        font-size: var(--font-size-4xl);
-    }
-
-    .catalog-subtitle {
-        font-size: var(--font-size-base);
-    }
-
-    .pricing-grid {
-        grid-template-columns: 1fr;
-        gap: var(--spacing-md);
-    }
-
-    .pricing-card {
-        padding: var(--spacing-lg);
-    }
-
-    .price {
-        font-size: var(--font-size-2xl);
-    }
-
-    .catalog-cta h2 {
-        font-size: var(--font-size-3xl);
-    }
-
-    .catalog-note {
-        flex-direction: column;
-        text-align: center;
-    }
-}
-
-/* Animation Enhancement */
-.pricing-card {
-    animation: scaleIn 0.5s ease-out backwards;
-}
-
-@keyframes scaleIn {
-    from {
-        opacity: 0;
-        transform: scale(0.9);
-    }
-
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-/* Hover Effects */
-.pricing-card::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
-    opacity: 0;
-    transition: opacity var(--transition-base);
-    pointer-events: none;
+    padding: var(--spacing-3xl);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
     border-radius: var(--radius-lg);
 }
 
-.pricing-card:hover::after {
-    opacity: 1;
+.catalog-cta h2 {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    margin-bottom: var(--spacing-sm);
 }
 
-/* WhatsApp Button for Catalog Cards */
-.btn-whatsapp-outline {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    padding: 0.85rem 1.25rem;
-    background: transparent;
-    color: #25D366;
-    border: 2px solid #25D366;
-    border-radius: var(--radius-md);
-    font-family: var(--font-display);
-    font-size: 0.95rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    margin-top: auto;
+.catalog-cta p {
+    font-size: 1.1rem;
+    color: var(--text-tertiary);
+    margin-bottom: var(--spacing-lg);
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.btn-whatsapp-outline:hover {
-    background: linear-gradient(135deg, #25D366, #128C7E);
-    color: white;
-    border-color: transparent;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(37, 211, 102, 0.3);
+.catalog-cta .btn {
+    padding: 18px 48px;
+    font-size: 1rem;
+    background: var(--text-primary);
+    color: var(--bg-primary);
+    border-radius: var(--radius-full);
 }
 
-.btn-whatsapp-outline svg {
-    flex-shrink: 0;
-    transition: transform 0.3s ease;
+.catalog-cta .btn:hover {
+    background: var(--accent-primary);
+    color: #000;
 }
 
-.btn-whatsapp-outline:hover svg {
-    transform: scale(1.1);
-}
-
+/* Responsive */
 @media (max-width: 768px) {
-    .btn-whatsapp-outline {
-        font-size: 0.9rem;
-        padding: 0.75rem 1rem;
+    .catalog-page {
+        padding-top: 100px;
     }
-}
 
-/* WhatsApp Button for Catalog Cards */
-.btn-whatsapp-outline {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    padding: 0.85rem 1.25rem;
-    background: transparent;
-    color: #25D366;
-    border: 2px solid #25D366;
-    border-radius: var(--radius-md);
-    font-family: var(--font-display);
-    font-size: 0.95rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    margin-top: auto;
-}
+    .pricing-grid {
+        grid-template-columns: 1fr;
+    }
 
-.btn-whatsapp-outline:hover {
-    background: linear-gradient(135deg, #25D366, #128C7E);
-    color: white;
-    border-color: transparent;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(37, 211, 102, 0.3);
-}
+    .pricing-card {
+        padding: var(--spacing-lg);
+    }
 
-.btn-whatsapp-outline svg {
-    flex-shrink: 0;
-    transition: transform 0.3s ease;
-}
+    .price {
+        font-size: 2.25rem;
+    }
 
-.btn-whatsapp-outline:hover svg {
-    transform: scale(1.1);
-}
-
-@media (max-width: 768px) {
-    .btn-whatsapp-outline {
-        font-size: 0.9rem;
-        padding: 0.75rem 1rem;
+    .catalog-cta {
+        padding: var(--spacing-xl);
     }
 }

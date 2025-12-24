@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { gsap } from 'gsap'
 import './Navbar.css'
 
@@ -7,18 +6,14 @@ const Navbar = () => {
     const navRef = useRef(null)
     const [isScrolled, setIsScrolled] = useState(false)
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-    const location = useLocation()
-    const navigate = useNavigate()
 
     useEffect(() => {
-        // Navbar entrance animation
         gsap.fromTo(
             navRef.current,
             { y: -100, opacity: 0 },
             { y: 0, opacity: 1, duration: 1, ease: 'power3.out', delay: 0.2 }
         )
 
-        // Scroll effect
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 50)
         }
@@ -28,23 +23,15 @@ const Navbar = () => {
     }, [])
 
     const scrollToSection = (id) => {
-        // If we're on the catalog page, navigate to home first
-        if (location.pathname === '/catalog') {
-            navigate('/')
-            // Use setTimeout to wait for navigation to complete
-            setTimeout(() => {
-                const element = document.getElementById(id)
-                if (element) {
-                    element.scrollIntoView({ behavior: 'smooth' })
-                }
-            }, 100)
-        } else {
-            // We're already on the home page, just scroll
-            const element = document.getElementById(id)
-            if (element) {
-                element.scrollIntoView({ behavior: 'smooth' })
-            }
+        const element = document.getElementById(id)
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' })
         }
+        setIsMobileMenuOpen(false)
+    }
+
+    const scrollToTop = () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' })
         setIsMobileMenuOpen(false)
     }
 
@@ -59,9 +46,9 @@ const Navbar = () => {
         >
             <div className="container">
                 <div className="navbar-content">
-                    <Link to="/" className="navbar-logo">
-                        <span className="gradient-text">IGNIUS</span>
-                    </Link>
+                    <button onClick={scrollToTop} className="navbar-logo">
+                        IGNIUS <span className="accent">STUDIOS</span>
+                    </button>
 
                     <ul className="navbar-menu">
                         <li>
@@ -70,19 +57,19 @@ const Navbar = () => {
                             </button>
                         </li>
                         <li>
-                            <button onClick={() => scrollToSection('projects')} className="nav-link">
-                                Projects
-                            </button>
-                        </li>
-                        <li>
                             <button onClick={() => scrollToSection('about')} className="nav-link">
                                 About
                             </button>
                         </li>
                         <li>
-                            <Link to="/catalog" className="nav-link" onClick={() => setIsMobileMenuOpen(false)}>
-                                Catalog
-                            </Link>
+                            <button onClick={() => scrollToSection('projects')} className="nav-link">
+                                Work
+                            </button>
+                        </li>
+                        <li>
+                            <button onClick={() => scrollToSection('process')} className="nav-link">
+                                Process
+                            </button>
                         </li>
                         <li>
                             <button onClick={() => scrollToSection('contact')} className="nav-link">
@@ -93,7 +80,7 @@ const Navbar = () => {
 
                     <button
                         onClick={() => scrollToSection('contact')}
-                        className="btn btn-primary btn-sm navbar-cta"
+                        className="btn btn-primary navbar-cta"
                     >
                         Get Started
                     </button>
@@ -117,19 +104,19 @@ const Navbar = () => {
                             </button>
                         </li>
                         <li>
-                            <button onClick={() => scrollToSection('projects')} className="mobile-nav-link">
-                                Projects
-                            </button>
-                        </li>
-                        <li>
                             <button onClick={() => scrollToSection('about')} className="mobile-nav-link">
                                 About
                             </button>
                         </li>
                         <li>
-                            <Link to="/catalog" className="mobile-nav-link" onClick={() => setIsMobileMenuOpen(false)}>
-                                Catalog
-                            </Link>
+                            <button onClick={() => scrollToSection('projects')} className="mobile-nav-link">
+                                Work
+                            </button>
+                        </li>
+                        <li>
+                            <button onClick={() => scrollToSection('process')} className="mobile-nav-link">
+                                Process
+                            </button>
                         </li>
                         <li>
                             <button onClick={() => scrollToSection('contact')} className="mobile-nav-link">
@@ -139,7 +126,8 @@ const Navbar = () => {
                         <li>
                             <button
                                 onClick={() => scrollToSection('contact')}
-                                className="btn btn-primary btn-full"
+                                className="btn btn-primary"
+                                style={{ width: '100%', marginTop: '1rem' }}
                             >
                                 Get Started
                             </button>

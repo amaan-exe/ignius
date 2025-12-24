@@ -1,62 +1,50 @@
-import { useEffect, lazy, Suspense } from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { useState, useEffect } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Projects from './components/Projects'
 import About from './components/About'
+import Process from './components/Process'
+import Testimonials from './components/Testimonials'
+import FAQ from './components/FAQ'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import ThemeToggle from './components/ThemeToggle'
-
-// Lazy load Catalog page for code splitting
-const Catalog = lazy(() => import('./components/Catalog'))
-
-// Loading fallback component
-const LoadingFallback = () => (
-    <div style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        minHeight: '100vh',
-        background: 'var(--bg-primary)',
-        color: 'var(--text-primary)'
-    }}>
-        <div style={{ textAlign: 'center' }}>
-            <div className="gradient-text" style={{ fontSize: '2rem', marginBottom: '1rem' }}>
-                Loading...
-            </div>
-        </div>
-    </div>
-)
+import ScrollProgress from './components/ScrollProgress'
+import CustomCursor from './components/CustomCursor'
+import PageLoader from './components/PageLoader'
+import CookieConsent from './components/CookieConsent'
 
 function App() {
+    const [isLoading, setIsLoading] = useState(true)
+
     useEffect(() => {
-        // Smooth scroll polyfill for older browsers
         document.documentElement.style.scrollBehavior = 'smooth'
     }, [])
 
+    const handleLoaderComplete = () => {
+        setIsLoading(false)
+    }
+
     return (
         <div className="app">
-            <Routes>
-                <Route path="/" element={
-                    <>
-                        <Navbar />
-                        <main>
-                            <Hero />
-                            <Projects />
-                            <About />
-                            <Contact />
-                        </main>
-                        <Footer />
-                    </>
-                } />
-                <Route path="/catalog" element={
-                    <Suspense fallback={<LoadingFallback />}>
-                        <Catalog />
-                    </Suspense>
-                } />
-            </Routes>
+            {isLoading && <PageLoader onComplete={handleLoaderComplete} />}
+            <CustomCursor />
+            <ScrollProgress />
+
+            <Navbar />
+            <main>
+                <Hero />
+                <About />
+                <Projects />
+                <Process />
+                <Testimonials />
+                <FAQ />
+                <Contact />
+            </main>
+            <Footer />
+
             <ThemeToggle />
+            <CookieConsent />
         </div>
     )
 }

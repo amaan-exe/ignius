@@ -12,24 +12,24 @@ const About = () => {
 
     const services = [
         {
-            icon: '🎨',
+            number: '01',
             title: 'UI/UX Design',
-            description: 'Creating intuitive and beautiful user experiences that delight and engage'
+            description: 'Creating intuitive and beautiful user experiences that delight and engage your audience.'
         },
         {
-            icon: '💻',
+            number: '02',
             title: 'Web Development',
-            description: 'Building fast, scalable, and responsive websites with modern technologies'
+            description: 'Building fast, scalable, and responsive websites with modern technologies.'
         },
         {
-            icon: '📱',
+            number: '03',
             title: 'Mobile Apps',
-            description: 'Developing native and cross-platform mobile applications'
+            description: 'Developing native and cross-platform mobile applications for iOS and Android.'
         },
         {
-            icon: '🚀',
+            number: '04',
             title: 'Brand Identity',
-            description: 'Crafting unique brand identities that stand out in the market'
+            description: 'Crafting unique brand identities that stand out and resonate with your market.'
         }
     ]
 
@@ -37,31 +37,31 @@ const About = () => {
         const ctx = gsap.context(() => {
             gsap.fromTo(
                 contentRef.current,
-                { x: -100, opacity: 0 },
+                { y: 60, opacity: 0 },
                 {
-                    x: 0,
+                    y: 0,
                     opacity: 1,
-                    duration: 1,
+                    duration: 0.8,
                     scrollTrigger: {
                         trigger: contentRef.current,
-                        start: 'top 75%',
-                        toggleActions: 'play none none reverse'
+                        start: 'top 80%',
+                        toggleActions: 'play none none none'
                     }
                 }
             )
 
             gsap.fromTo(
                 servicesRef.current.children,
-                { y: 50, opacity: 0 },
+                { y: 40, opacity: 0 },
                 {
                     y: 0,
                     opacity: 1,
-                    duration: 0.8,
-                    stagger: 0.2,
+                    duration: 0.6,
+                    stagger: 0.1,
                     scrollTrigger: {
                         trigger: servicesRef.current,
-                        start: 'top 75%',
-                        toggleActions: 'play none none reverse'
+                        start: 'top 80%',
+                        toggleActions: 'play none none none'
                     }
                 }
             )
@@ -75,8 +75,9 @@ const About = () => {
             <div className="container">
                 <div className="about-content">
                     <div className="about-text" ref={contentRef}>
-                        <h2 className="section-title">
-                            About <span className="gradient-text">Our Agency</span>
+                        <div className="section-label">About Us</div>
+                        <h2 className="about-title">
+                            We craft digital products that drive business growth.
                         </h2>
                         <p className="about-description">
                             We are a creative digital agency passionate about transforming ideas into
@@ -86,33 +87,37 @@ const About = () => {
                         </p>
                         <p className="about-description">
                             Our approach combines cutting-edge technology with creative excellence to deliver
-                            solutions that exceed expectations. From startups to established brands, we've
-                            helped businesses worldwide achieve their digital goals.
+                            solutions that exceed expectations.
                         </p>
                         <div className="about-stats-inline">
                             <div className="stat-inline">
-                                <span className="stat-number-inline gradient-text">1+</span>
-                                <span className="stat-label-inline">Years Experience</span>
+                                <span className="stat-number-inline">1+</span>
+                                <span className="stat-label-inline">Years</span>
                             </div>
                             <div className="stat-inline">
-                                <span className="stat-number-inline gradient-text">15+</span>
-                                <span className="stat-label-inline">Projects Delivered</span>
+                                <span className="stat-number-inline">15+</span>
+                                <span className="stat-label-inline">Projects</span>
                             </div>
                             <div className="stat-inline">
-                                <span className="stat-number-inline gradient-text">10+</span>
-                                <span className="stat-label-inline">Happy Clients</span>
+                                <span className="stat-number-inline">10+</span>
+                                <span className="stat-label-inline">Clients</span>
                             </div>
                         </div>
                     </div>
 
-                    <div className="services-grid" ref={servicesRef}>
-                        {services.map((service, index) => (
-                            <div key={index} className="service-card glass">
-                                <div className="service-icon">{service.icon}</div>
-                                <h3 className="service-title">{service.title}</h3>
-                                <p className="service-description">{service.description}</p>
-                            </div>
-                        ))}
+                    <div className="services-section">
+                        <div className="services-header">
+                            <h3 className="services-title">What We Do</h3>
+                        </div>
+                        <div className="services-grid" ref={servicesRef}>
+                            {services.map((service, index) => (
+                                <div key={index} className="service-card">
+                                    <span className="service-number">{service.number}</span>
+                                    <h4 className="service-title">{service.title}</h4>
+                                    <p className="service-description">{service.description}</p>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>

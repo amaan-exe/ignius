@@ -1,6 +1,24 @@
+# Robots.txt for Ignius Studios
+# https://igniusstudios.com
+
 User-agent: *
 Allow: /
-Disallow: /admin/
-Disallow: /_next/
 
-Sitemap: https://ignius-olive.vercel.app/sitemap.xml
+# Sitemap
+Sitemap: https://igniusstudios.com/sitemap.xml
+
+# Block development and test paths
+Disallow: /api/
+Disallow: /*.json$
+Disallow: /node_modules/
+
+# Allow all crawlers to access assets
+Allow: /assets/
+Allow: /*.js$
+Allow: /*.css$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.webp$
+
+# Crawl delay for respectful crawling
+Crawl-delay: 1
